@@ -27,7 +27,7 @@ jobs:
       - name: Replace tokens
         uses: cschleiden/replace-tokens@v1.0
         with:
-          files: ["k8s-model.yaml"]
+          files: '["k8s-model.yaml"]'
         env:
           PRNUM: ${{ github.event.number }}
       
