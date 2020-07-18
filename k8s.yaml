@@ -29,7 +29,7 @@ spec:
         app: hello-world
     spec:
       containers:
-      - image: yeasy/simple-web:latest
+      - image: docker.io/yeasy/simple-web:latest
         name: hello-world
         imagePullPolicy: Always
         ports:
