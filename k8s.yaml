@@ -29,7 +29,7 @@ spec:
         app: hello-world
     spec:
       containers:
-      - image: okteto/hello-world:golang
+      - image: yeasy/simple-web:latest
         name: hello-world
         imagePullPolicy: Always
         ports:
