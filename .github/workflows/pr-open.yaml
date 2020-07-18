@@ -2,6 +2,8 @@ name: PR-Open
 
 on:
   pull_request:
+    types:
+      - opened
     branches: 
       - master
 
