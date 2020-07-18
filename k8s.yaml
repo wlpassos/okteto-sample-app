@@ -29,7 +29,7 @@ spec:
         app: hello-world
     spec:
       containers:
-      - image: okteto/sample-app:1.0
+      - image: okteto/wlpassos/sample-app:1.0
         name: hello-world
         imagePullPolicy: Always
         ports:
