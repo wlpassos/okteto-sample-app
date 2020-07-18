@@ -1,37 +1,36 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: hello-world
+  name: hello-world-#{PRNUM}#
   annotations:
     dev.okteto.com/auto-ingress: "true"
 spec:
   type: ClusterIP  
   ports:
-  - name: "hello-world"
+  - name: "hello-world-#{PRNUM}#"
     port: 8080
   selector:
-    app: hello-world
+    app: hello-world-#{PRNUM}#
 
 ---
 
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hello-world
+  name: hello-world-#{PRNUM}#
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
-      app: hello-world
+      app: hello-world-#{PRNUM}#
   template:
     metadata:
       labels:
-        app: hello-world
+        app: hello-world-#{PRNUM}#
     spec:
       containers:
-      #- image: registry.cloud.okteto.net/wlpassos/sample-app:1.0
       - image: gcr.io/google-samples/hello-app:1.0
-        name: hello-world
+        name: hello-world-#{PRNUM}#
         imagePullPolicy: Always
         ports:
         - name: http

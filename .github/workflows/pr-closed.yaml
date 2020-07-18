@@ -1,0 +1,38 @@
+name: PR-Closed
+
+on:
+  pull_request:
+    types:
+      - closed
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: "Checkout Repo"
+        uses: actions/checkout@master
+
+      - name: "Okteto Login"
+        uses: okteto/login@master
+        with:
+          token: ${{ secrets.OKTETO_TOKEN }}
+      
+      - name: "Activate personal namespace"
+        uses: okteto/namespace@master
+        with:
+          namespace: wlpassos
+      
+      - name: Replace tokens
+        uses: cschleiden/replace-tokens@v1.0
+        with:
+          files:
+            - k8s-model.yaml
+        env:
+          PRNUM: ${{ github.event.number }}
+      
+      - name: "Delete deployment"
+        uses: wlpassos/okteto-delete-resource@master
+        with:
+          manifest: k8s-model.yaml
