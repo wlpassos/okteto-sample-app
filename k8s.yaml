@@ -29,7 +29,8 @@ spec:
         app: hello-world
     spec:
       containers:
-      - image: registry.cloud.okteto.net/wlpassos/sample-app:1.0
+      #- image: registry.cloud.okteto.net/wlpassos/sample-app:1.0
+      - image: gcr.io/google-samples/hello-app:1.0
         name: hello-world
         imagePullPolicy: Always
         ports:
