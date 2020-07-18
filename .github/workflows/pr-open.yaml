@@ -40,4 +40,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          msg: "Preview environment available at hello-world-${{ github.event.number }}-wlpassos.cloud.okteto.net"
+          msg: "Preview environment available at https://hello-world-${{ github.event.number }}-wlpassos.cloud.okteto.net"
