@@ -29,7 +29,7 @@ jobs:
     - name: "Activate personal namespace"
       uses: okteto/namespace@master
       with:
-        name: wlpassos
+        namespace: wlpassos
 
     - name: "Create deployment"
       uses: okteto/apply@master
