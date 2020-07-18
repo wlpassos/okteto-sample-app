@@ -22,5 +22,16 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
     
-    - name: Kubectl Apply
-      uses: okteto/apply@v4.0
+    - uses: okteto/login@master
+      with:
+        token: ${{ secrets.OKTETO_TOKEN }}
+    
+    - name: "Activate personal namespace"
+      uses: okteto/namespace@master
+      with:
+        name: wlpassos
+
+    - name: "Create deployment"
+      uses: okteto/apply@master
+      with:
+        manifest: k8s.yaml
