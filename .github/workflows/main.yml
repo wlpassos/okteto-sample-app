@@ -6,6 +6,9 @@ name: Deploy
 # events but only for the master branch
 on:
   push:
+    paths:
+      - 'k8s.yaml'
+      - 'k8s-model.yaml'
     branches: [ master ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
